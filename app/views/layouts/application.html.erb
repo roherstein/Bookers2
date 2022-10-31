@@ -12,7 +12,12 @@
 
   <body>
     <header>
+
       <% if user_signed_in? %>
+       <a href="root">Bookers</a>
+       <li>
+        <%= link_to "Bookers",homes_top_path,method: :get %>
+       </li>
        <li>
         <%= link_to "Home",homes_top_path,method: :get %>
        </li>
@@ -27,6 +32,9 @@
        </li>
       <% else %>
        <li>
+        <%= link_to "Bookers",homes_top_path,method: :get %>
+       </li>
+       <li>
         <%= link_to "Home",homes_top_path,method: :get %>
        </li>
        <li>
@@ -39,7 +47,13 @@
         <%= link_to "Log in",new_user_session_path,method: :get %>
        </li>
       <% end %>
+
     </header>
     <%= yield %>
+
+    <footer>
+     <p>CopyRight Infratop.inc</p>
+    </footer>
+
   </body>
 </html>
