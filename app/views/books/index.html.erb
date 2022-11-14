@@ -1,11 +1,20 @@
-<h1>Books</h1>
+<div class="container">
+  <div class="row">
 
-<% @books.each do |book| %>
+    <div class="col-md-3">
+      <p>test</p>
+    </div>
 
-  <p>Title</p>
-  <span><%= book.title %></span>
+    <div class="col-md-8 offset-md-1">
+      <h1>Books</h1>
+      <% @books.each do |book| %>
+        <p>Title</p>
+        <span><%= book.title %></span>
 
-  <p>Opinion</p>
-  <span><%= book.opinion %></span>
+        <p>Opinion</p>
+        <span><%= book.opinion %></span>
+      <% end %>
+    </div>
 
-<% end %>
+  </div>
+</div>
