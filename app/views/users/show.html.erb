@@ -2,24 +2,13 @@
   <div class="row">
 
     <div class="col-md-3">
-      <h1>User info</h1>
-      <% if @user.image.attached? %>
-       <%= image_tag User.image, size: "200x200" %>
-      <% else %>
-       <%= image_tag 'no_image.jpeg',size: "200x200" %>
-      <% end %>
-
-      <p>Name</p>
-      <%= @user.name %>
-      <p>Introduction</p>
-      <%= @user.introduction %>
+      <%= render 'user info', user: @user %>
 
       <div class="row">
         <%= link_to edit_user_path,class:"btn btn-outline-secondary btn-block" do %>
           <i class="fas fa-user-cog"></i>
         <% end %>
 　    </div>
-
 
       <h1>New book</h1>
       <%= form_with model: @book do |f| %>

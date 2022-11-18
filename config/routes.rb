@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show,:edit,:index]
   #get 'users/show'
   #get 'users/edit'
-  resources :books, only: [:new,:index,:show,:edit,:create]
+  resources :books, only: [:new,:index,:show,:edit,:create,:update,:destroy]
   #get 'books/new'
   #get 'books/index'
   #get 'books/show'

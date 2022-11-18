@@ -1,12 +1,15 @@
 <h1>Editing Book</h1>
-<% @lists.each do |list| %>
+
+<% form_with model:@book do |f| %>
 
   <p>Title</p>
-  
+  <%= f.text_field :title %>
   <p>Opinion</p>
-  
+  <%= f.text_field :body %>
+
+  <%= f.submit 'Update Book' %>
   <span>
-    <%=link_to book.title, book_path(list.id) %>
+    <!--%=link_to "Show", book_path(book.id) %>-->
+    <!--%=link_to "Back", books_path %>-->
   </span>
-  
 <% end %>

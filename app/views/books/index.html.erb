@@ -2,18 +2,7 @@
   <div class="row">
 
     <div class="col-md-3">
-      <h1>User info</h1>
-
-      <% if @user.image.attached? %>
-       <%= image_tag User.image, size: "200x200" %>
-      <% else %>
-       <%= image_tag 'no_image.jpeg',size: "200x200" %>
-      <% end %>
-
-      <p>Name</p>
-      <%= @user.name %>
-      <p>Introduction</p>
-      <%= @user.introduction %>
+      <%= render 'users/user info', user: @user %>
 
       <div class="row">
         <%= link_to edit_user_path(current_user.id),class:"btn btn-outline-secondary btn-block" do %>
@@ -34,8 +23,12 @@
 
     <div class="col-md-8 offset-md-1">
       <h1>Books</h1>
-
       <% @books.each do |book| %>
+        <% if @user.image.attached? %>
+         <%= image_tag User.image, size: "200x200" %>
+        <% else %>
+         <%= image_tag 'no_image.jpeg',size: "200x200" %>
+        <% end %>
         <p>Title</p>
         <span><%= book.title %></span>
 　　　　<%= link_to "Title", book_path(book.id) %>
