@@ -20,23 +20,22 @@
 
     <div class="col-md-8 offset-md-1">
       <h1>Book detail</h1>
-      <% @books.each do |book| %>
-      　繰り返し文ではなく、かつ、特定のuser_idの詳細を表示
-        <% if @user.image.attached? %>
-         <%= image_tag User.image, size: "200x200" %>
+        <% if @book_to_show.user.image.attached? %>
+         <%= image_tag @book_to_show.user.image, size: "200x200" %>
         <% else %>
          <%= image_tag 'no_image.jpeg',size: "200x200" %>
         <% end %>
-        <p>Title</p>
-        <span><%= book.title %></span>
-　　　　<%= link_to "Title", book_path(book.id) %>
-        <p>Opinion</p>
-        <span><%= book.body %></span>
+
+       <%= link_to @user.name, user_path(@user.id) %>
+
+        <%= link_to @book_to_show.title, book_path(@book_to_show) %>
+        <span><%= @book_to_show.body %></span>
+
         <span>
-         <!--%=link_to "Edit", edit_book_path(book.id) %>-->
-         <!--%=link_to "Destroy", books_path , method: :delete, "data-confirm" => "本当に削除しますか？" %>-->
+         <%=link_to "Edit", edit_book_path(@book_to_show.id) %>
+         <%=link_to "Destroy", books_path(@book_to_show.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
         </span>
-      <% end %>
+
     </div>
   </div>
 </div>

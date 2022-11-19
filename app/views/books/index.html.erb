@@ -23,16 +23,18 @@
 
     <div class="col-md-8 offset-md-1">
       <h1>Books</h1>
+      <p>Title</p>
+      <p>Opinion</p>
+
       <% @books.each do |book| %>
         <% if @user.image.attached? %>
          <%= image_tag User.image, size: "200x200" %>
         <% else %>
          <%= image_tag 'no_image.jpeg',size: "200x200" %>
         <% end %>
-        <p>Title</p>
+
         <span><%= book.title %></span>
 　　　　<%= link_to "Title", book_path(book.id) %>
-        <p>Opinion</p>
         <span><%= book.body %></span>
       <% end %>
     </div>
