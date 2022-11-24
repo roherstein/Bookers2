@@ -14,28 +14,35 @@
        <%= f.text_field :title %>
        <h4>Opinion</h4>
        <%= f.text_area :body %>
-       <%= f.submit 'Create Book' %>
+       <%= f.submit 'Create Book',class: "btn btn-success" %>
       <% end %>
     </div>
 
     <div class="col-md-8 offset-md-1">
       <h1>Book detail</h1>
-        <% if @book_to_show.user.image.attached? %>
-         <%= image_tag @book_to_show.user.image, size: "200x200" %>
-        <% else %>
-         <%= image_tag 'no_image.jpeg',size: "200x200" %>
-        <% end %>
-
-       <%= link_to @user.name, user_path(@user.id) %>
-
-        <%= link_to @book_to_show.title, book_path(@book_to_show) %>
-        <span><%= @book_to_show.body %></span>
-
-        <span>
-         <%=link_to "Edit", edit_book_path(@book_to_show.id) %>
-         <%=link_to "Destroy", books_path(@book_to_show.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-        </span>
-
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <%= image_tag @user.get_profile_image(100,100) %>
+                <br>
+                <%= link_to @user.name, user_path(@user.id) %>
+              </td>
+              <td>
+                <%= link_to @book_to_show.title, book_path(@book_to_show) %>
+              </td>
+              <td>
+                <span><%= @book_to_show.body %></span>
+              </td>
+              <td>
+                <%=link_to "Edit", edit_book_path(@book_to_show.id),class: "btn btn-success" %>
+              </td>
+              <td>
+                <%=link_to "Destroy", book_path(@book_to_show.id),class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
     </div>
   </div>
 </div>

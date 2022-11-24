@@ -22,6 +22,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
            <ul class="navbar-nav ml-auto">
+
             <% if user_signed_in? %>
              <li class="nav-link text-light">
               <%= link_to  user_path(current_user.id),class:'navbar-brand' do %>
@@ -62,6 +63,7 @@
              <li class="nav-item">
               <%= link_to new_user_session_path,class:'navbar-brand' do %>
                <i class="fas fa-sign-in-alt"></i>Log in
+
               <% end %>
              </li>
             <% end %>
@@ -71,6 +73,9 @@
       </nav>
     </header>
 
+　　<% flash.each do |message_type, message| %>
+　　<%= content_tag :div, message, class: message_type %>
+　　<% end %>
 
     <%= yield %>
 

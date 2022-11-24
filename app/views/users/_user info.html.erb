@@ -1,13 +1,16 @@
- <h1>User info</h1>
-
-      <% if user.image.attached? %>
-       <%= image_tag User.image, size: "200x200" %>
-      <% else %>
-       <%= image_tag 'no_image.jpeg',size: "200x200" %>
-      <% end %>
-
-      <p>Name</p>
-      <%= user.name %>
-      <p>Introduction</p>
-      <%= user.introduction %>
-      
+ <div class="row">
+ 　<h1>User info</h1>
+ 　<tr>
+  　 <%= image_tag user.get_profile_image(100,100) %>
+ 　</tr>
+   <table class = "table">
+     <tr>
+       <th>Name</th>
+       <th><%= user.name %></th>
+     </tr>
+     <tr>
+       <th>Introduction</th>
+       <th><%= user.introduction %></th>
+     </tr>
+   </table>
+</div>
